@@ -17,4 +17,13 @@
         from user
         where id = #{id,jdbcType=BIGINT}
     </select>
+    
+    <!-- 分页条件查询 -->
+    <select id="selectByPage" resultMap="BaseResultMap" parameterType="com.sipingsoft.office.core.orm.Page">
+        select <include refid="Base_Column_List" /> from user
+    </select>
+    
+    <select id="selectByUser" resultMap="BaseResultMap" parameterType="com.sipingsoft.office.web.entity.User">
+        select <include refid="Base_Column_List" /> from user
+    </select>
 </mapper>
