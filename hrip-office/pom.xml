@@ -9,41 +9,163 @@
   
   <properties>
     <spring.version>4.0.2.RELEASE</spring.version>
+    <mybatis.version>3.3.0</mybatis.version>  
+    <slf4j.version>1.7.21</slf4j.version>  
+    <log4j.version>1.2.17</log4j.version>  
+    <mybatis.spring.version>1.2.2</mybatis.spring.version>
+    <mysql.connector.version>5.1.30</mysql.connector.version>
+    <jstl.version>1.2</jstl.version>
+    <druid.version>1.0.5</druid.version>
+    <hibernate.validator.version>5.1.1.Final</hibernate.validator.version>
+    
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
- 
+    <dependency>  
+        <groupId>junit</groupId>  
+        <artifactId>junit</artifactId>  
+        <version>4.11</version>  
+        <!-- 表示开发的时候引入，发布的时候不会加载此包 -->  
+        <scope>test</scope>  
+    </dependency> 
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-core</artifactId>
         <version>${spring.version}</version>
     </dependency>
-  
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-web</artifactId>
         <version>${spring.version}</version>
     </dependency>
-  
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>${spring.version}</version>
     </dependency>
-  
-    <!-- 文件在线预览 -->
+    <!-- Spring 对Object/XMl的映射支持,可以让Java与XML之间来回切换 -->
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-oxm</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency> 
+    <!-- 事务 --> 
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-tx</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-jdbc</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency> 
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-aop</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>  
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-context-support</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency> 
+    <dependency>  
+        <groupId>org.springframework</groupId>  
+        <artifactId>spring-test</artifactId>  
+        <version>${spring.version}</version>  
+    </dependency>
+    <!--mybatis核心包  --> 
+    <dependency>  
+        <groupId>org.mybatis</groupId>  
+        <artifactId>mybatis</artifactId>  
+        <version>${mybatis.version}</version>  
+    </dependency>  
+   <!-- mybatis/spring包 --> 
+    <dependency>  
+        <groupId>org.mybatis</groupId>  
+        <artifactId>mybatis-spring</artifactId>  
+        <version>${mybatis.spring.version}</version>
+    </dependency>
+    <!-- mysql-connector -->
     <dependency>
-        <groupId>fakepath</groupId>
-        <artifactId>sqlite-jdbc</artifactId>
-        <version>3.7.2</version>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.connector.version}</version>
+    </dependency>
+    <!-- DruidDataSource -->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>${druid.version}</version>
+    </dependency>
+    <!-- log start -->
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
     </dependency>
     <dependency>
-        <groupId>com.zhuozhengsoft</groupId>
-        <artifactId>pageoffice</artifactId>
-        <version>1.0.0</version>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
     </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.5</version>
+    </dependency>
+    <!-- log end -->
+    <!-- servlet api -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+    <!-- jstl -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${jstl.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>3.1</version>
+    </dependency>
+    <!-- hibernate-validator -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>${hibernate.validator.version}</version>
+    </dependency>
+    
+    <dependency>
+	   <groupId>com.fasterxml.jackson.core</groupId>
+	   <artifactId>jackson-core</artifactId>
+	   <version>2.5.3</version>
+	</dependency>
+	<dependency>
+	   <groupId>com.fasterxml.jackson.core</groupId>
+	   <artifactId>jackson-databind</artifactId>
+	   <version>2.5.3</version>
+	</dependency>
   </dependencies>
   
   <build>
     <finalName>${project.name}</finalName>
+    <!-- 解决去掉web.xml后不能打包的问题 -->
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.4</version>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+    </plugins>
   </build>
 </project>
