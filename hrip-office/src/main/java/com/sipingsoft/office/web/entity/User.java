@@ -2,19 +2,25 @@ package com.sipingsoft.office.web.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 用户模型
  * 
  **/
+@Table(name = "user")
 public class User {
+    @Id
     private Long id;
-
+    @Column
     private String username;
-
+    @Column
     private String password;
-
+    @Column
     private String state;
-
+    @Column
     private Date createTime;
 
     public User() {

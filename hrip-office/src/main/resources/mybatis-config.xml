@@ -64,5 +64,5 @@
         <plugin interceptor="com.sipingsoft.office.core.orm.PaginationResultSetHandlerInterceptor"/>
         <plugin interceptor="com.sipingsoft.office.core.orm.PaginationStatementHandlerInterceptor"/>
     </plugins>
-
+    
 </configuration>

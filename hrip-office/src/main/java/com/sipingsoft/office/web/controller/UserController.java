@@ -20,7 +20,9 @@ public class UserController {
     @RequestMapping("/user/listByPage")
     @ResponseBody
     public List<User> getUserList(Page<User> page, int pageNo){
-        
+        User u = new User();
+        u.setId(1l);
+        User selectOne = userMapper.selectOne(u);
         return userMapper.selectByPage(page);
     }
 }

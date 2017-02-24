@@ -1,0 +1,2 @@
+
+mvn install:install-file -Dfile=C:\Users\xjkms\Desktop\mapper-3.4.0.jar -DgroupId=com.github.abel533 -DartifactId=mapper -Dversion=3.4.0 -Dpackaging=jar

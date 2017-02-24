@@ -11,12 +11,12 @@
     <sql id="Base_Column_List">
         id, username, password, state, create_time
     </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+    <!-- <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
         select
         <include refid="Base_Column_List" />
         from user
         where id = #{id,jdbcType=BIGINT}
-    </select>
+    </select> -->
     
     <!-- 分页条件查询 -->
     <select id="selectByPage" resultMap="BaseResultMap" parameterType="com.sipingsoft.office.core.orm.Page">
