@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.sipingsoft.office.core.annotation.Token;
 import com.sipingsoft.office.core.exception.DuplicateSpittleException;
 import com.sipingsoft.office.core.exception.SpittleNotFoundException;
 import com.sipingsoft.office.web.entity.Spittler;
@@ -58,6 +59,7 @@ public class SpittleController {
     }
     
     @RequestMapping(value="fileUpload/form", method = RequestMethod.GET)
+    @Token(save=true)
     public String showFileUpload(){
         return "fileUploadForm";
     }
@@ -109,5 +111,16 @@ public class SpittleController {
         User user = userMapper.selectByPrimaryKey(1l);
         model.addAttribute(user);
         return "成功";
+    }
+    
+    @RequestMapping(value = "/test/submit", method = RequestMethod.POST)
+    @ResponseBody
+    @Token(remove=true)
+    public String testSubmit(User user){
+        int insert = userMapper.insert(user);
+        if(insert != -1){
+            return "succese";
+        }
+        return "fail";
     }
 }

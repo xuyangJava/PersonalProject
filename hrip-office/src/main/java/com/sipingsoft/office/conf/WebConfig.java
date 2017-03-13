@@ -6,10 +6,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import com.sipingsoft.office.core.interceptor.TokenInterceptor;
 /**
  * spring mvc，控制器、拦截uri转发view,使用applicationContext.xml文件时是需要在web.xml中添加ContextLoaderListener
  */
@@ -42,8 +45,21 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
     
+    // 静态资源分发处理
     @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static");
+    public void addResourceHandlers(ResourceHandlerRegistry registry)
+    {
+        registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/").setCachePeriod(123456);
     }
+    /*
+     * 注册拦截器
+     */
+    @Bean
+    public TokenInterceptor loginInterceptor() {
+        return new TokenInterceptor();
+    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {  
+        registry.addInterceptor(loginInterceptor());  
+    }  
 }
