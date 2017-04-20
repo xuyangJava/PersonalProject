@@ -1,5 +1,7 @@
 package com.sipingsoft.office.conf;
 
+import java.sql.SQLException;
+
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -20,6 +22,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:jdbc.properties")
+
 public class DBConfig implements EnvironmentAware {
 
     private Environment env;
@@ -50,6 +53,11 @@ public class DBConfig implements EnvironmentAware {
         druidDataSource.setTestWhileIdle(true);
         druidDataSource.setTestOnBorrow(false);
         druidDataSource.setTestOnReturn(false);
+        try {
+            druidDataSource.setFilters("stat,log4j"); // 监控sql
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return druidDataSource;
     }
     
@@ -77,4 +85,5 @@ public class DBConfig implements EnvironmentAware {
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         return mapperScannerConfigurer;
     }
+    
 }

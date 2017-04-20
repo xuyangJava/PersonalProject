@@ -1,18 +1,17 @@
 package com.sipingsoft.office.web.entity;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
-@XmlRootElement(namespace="http://B2B_WMS_ORDER",name="B2B_WMS_ORDER")
+@XStreamAlias("B2B_WMS_ORDER")
 public class B2BWmsOrder {
 
+    @XStreamAlias("B2B_WMS_ORDER_HEAD")
     private WmsOrderHead wmsOrderHead;
 
     public WmsOrderHead getWmsOrderHead() {
         return wmsOrderHead;
     }
-    
-    @XmlElement(name="B2B_WMS_ORDER_HEAD")
+
     public void setWmsOrderHead(WmsOrderHead wmsOrderHead) {
         this.wmsOrderHead = wmsOrderHead;
     }

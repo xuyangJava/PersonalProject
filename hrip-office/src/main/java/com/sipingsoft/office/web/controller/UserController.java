@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sipingsoft.office.core.annotation.Token;
 import com.sipingsoft.office.core.orm.Page;
 import com.sipingsoft.office.web.entity.User;
 import com.sipingsoft.office.web.repository.UserMapper;

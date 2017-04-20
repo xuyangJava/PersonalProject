@@ -2,516 +2,675 @@ package com.sipingsoft.office.web.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 public class WmsOrderHead implements Serializable {
 
     private static final long serialVersionUID = 8578338971786381038L;
+    @XStreamAlias("ORDERNO")
     private String orderNo;
+    @XStreamAlias("SYSCODE")
     private String sysCode;
+    @XStreamAlias("WAREHSENO")
     private String warehseNo;
+    @XStreamAlias("BARCODE")
     private String barcode;
+    @XStreamAlias("ASNSONO")
     private String asnsono;
+    @XStreamAlias("ACCEPTDATE")
     private Date acceptDate;
+    @XStreamAlias("ORDERSTATUS")
     private String orderStatus;
+    @XStreamAlias("I_E_FLAG")
     private String ieFlag;
-    private String pieces;
-    private String grossWgight;
-    private String weight;
+    @XStreamAlias("PIECES")
+    private Double pieces;
+    @XStreamAlias("GROSS_WEIGHT")
+    private Double grossWgight;
+    @XStreamAlias("WEIGHT")
+    private Double weight;
+    @XStreamAlias("VOLUME")
     private String volume;
+    @XStreamAlias("TOTLMENOY")
     private String totalMenoy;
+    @XStreamAlias("WARP_TYPE")
     private String warpType;
-    private String amount;
+    @XStreamAlias("AMOUNT")
+    private Double amount;
+    @XStreamAlias("VERDOR")
     private String verdor;
+    @XStreamAlias("TRAF_MODE")
     private String trafMode;
+    @XStreamAlias("TRADE_COUNTRY")
     private String tradeCountry;
+    @XStreamAlias("DISTINATE_PORT")
     private String distinatePort;
+    @XStreamAlias("BILL1")
     private String bill1;
+    @XStreamAlias("BILL2")
     private String bill2;
+    @XStreamAlias("SERVICECODE")
     private String serviceCode;
+    @XStreamAlias("DEC_TYPE")
     private String decType;
+    @XStreamAlias("REMARK")
     private String remark;
+    @XStreamAlias("TAX_NO")
     private String taxNo;
+    @XStreamAlias("CLOSETIME")
     private Date closeTime;
+    @XStreamAlias("DEC_STATUS")
     private String decStatus;
+    @XStreamAlias("GJ_STATUS")
     private String gjStatus;
+    @XStreamAlias("ISEXCELIMP")
     private String isExcelimp;
+    @XStreamAlias("TRANS_MODE")
     private String transMode;
+    @XStreamAlias("ADDWHO")
     private String addWho;
+    @XStreamAlias("ADDTS")
     private String addts;
+    @XStreamAlias("EDITWHO")
     private String editWho;
+    @XStreamAlias("EDITTS")
     private String editts;
+    @XStreamAlias("STATUS")
     private String status;
+    @XStreamAlias("GATEJOB_NO")
     private String gatejobNo;
+    @XStreamAlias("OPERTION_ID")
     private String opertionId;
+    @XStreamAlias("INVOICE_NO")
     private String invoiceNo;
+    @XStreamAlias("PRE_ARRIVAL_DATE")
     private String preArrivalDate;
+    @XStreamAlias("ISTRANS")
     private String istrans;
+    @XStreamAlias("VESSEL_NAME")
     private String vesselName;
+    @XStreamAlias("VOYAGE")
     private String voyage;
+    @XStreamAlias("IMPORT_DATE")
     private Date importDate;
+    @XStreamAlias("IMPORT_STATE")
     private String importState;
+    @XStreamAlias("RESULT")
     private String result;
+    @XStreamAlias("SOURCE_TYPE")
     private String sourceType;
+    @XStreamAlias("INPUT_ER")
     private String inputEr;
+    @XStreamAlias("INPUT_DATE")
     private Date inputDate;
+    @XStreamAlias("UPDATE_ER")
     private String updateEr;
+    @XStreamAlias("UPDATE_DATE")
+    private String updateDate;
+    @XStreamAlias("INPUT_CODE")
+    private String inputCode;
+    @XStreamAlias("INPUT_NAME")
+    private String inputName;
+    @XStreamAlias("OP_CODE")
     private String opCode;
+    @XStreamAlias("OP_CODE_NAME>")
     private String opCodeName;
+    @XStreamAlias("IMPORT_STATE_NAME")
     private String importStateName;
+    @XStreamAlias("TRADE_CODE")
     private String tradeCode;
+    @XStreamAlias("TRADE_NAME")
     private String tradeName;
+    @XStreamAlias("DL_CODE")
     private String dlCode;
+    @XStreamAlias("DL_NAME")
     private String dlName;
+    @XStreamAlias("OTHER_CODE")
     private String otherCode;
+    @XStreamAlias("OTHER_NAME")
     private String otherName;
+    @XStreamAlias("EMS_NO")
     private String emsNo;
+    @XStreamAlias("CUSTOMS_CODE")
     private String customsCode;
+    @XStreamAlias("REGION_CODE>")
     private String regionCode;
+    @XStreamAlias("BIZ_TYPE")
     private String bizType;
-    private WmsOrderDetail wmsOrderDetail;
-    
-    @XmlElement(name="ORDERNO")
+
+    @XStreamImplicit
+    @XStreamAlias("B2B_WMS_ORDER_DETAIL")
+    private List<WmsOrderDetail> wmsOrderDetail;
+
     public void setOrderNo(String orderNo) {
         this.orderNo = orderNo;
     }
-    @XmlElement(name="SYSCODE")
+
     public void setSysCode(String sysCode) {
         this.sysCode = sysCode;
     }
-    @XmlElement(name="WAREHSENO")
+
     public void setWarehseNo(String warehseNo) {
         this.warehseNo = warehseNo;
     }
-    @XmlElement(name="BARCODE")
+
     public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
-    @XmlElement(name="ASNSONO")
+
     public void setAsnsono(String asnsono) {
         this.asnsono = asnsono;
     }
-    @XmlElement(name="ACCEPTDATE")
+
     public void setAcceptDate(Date acceptDate) {
         this.acceptDate = acceptDate;
     }
-    @XmlElement(name="ORDERSTATUS")
+
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
-    @XmlElement(name="I_E_FLAG")
+
     public void setIeFlag(String ieFlag) {
         this.ieFlag = ieFlag;
     }
-    @XmlElement(name="PIECES")
-    public void setPieces(String pieces) {
+
+    public void setPieces(Double pieces) {
         this.pieces = pieces;
     }
-    @XmlElement(name="GROSS_WEIGHT")
-    public void setGrossWgight(String grossWgight) {
+
+    public void setGrossWgight(Double grossWgight) {
         this.grossWgight = grossWgight;
     }
-    @XmlElement(name="WEIGHT")
-    public void setWeight(String weight) {
+
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
-    @XmlElement(name="VOLUME")
+
     public void setVolume(String volume) {
         this.volume = volume;
     }
-    @XmlElement(name="TOTALMENOY")
+
     public void setTotalMenoy(String totalMenoy) {
         this.totalMenoy = totalMenoy;
     }
-    @XmlElement(name="WARP_TYPE")
+
     public void setWarpType(String warpType) {
         this.warpType = warpType;
     }
-    @XmlElement(name="AMOUNT")
-    public void setAmount(String amount) {
+
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
-    @XmlElement(name="VERDOR")
+
     public void setVerdor(String verdor) {
         this.verdor = verdor;
     }
-    @XmlElement(name="TRAF_MODE")
+
     public void setTrafMode(String trafMode) {
         this.trafMode = trafMode;
     }
-    @XmlElement(name="TRADE_COUNTRY")
+
     public void setTradeCountry(String tradeCountry) {
         this.tradeCountry = tradeCountry;
     }
-    @XmlElement(name="DISTINATE_PORT")
+
     public void setDistinatePort(String distinatePort) {
         this.distinatePort = distinatePort;
     }
-    @XmlElement(name="BILL1")
+
     public void setBill1(String bill1) {
         this.bill1 = bill1;
     }
-    @XmlElement(name="BILL2")
+
     public void setBill2(String bill2) {
         this.bill2 = bill2;
     }
-    @XmlElement(name="SERVICECODE")
+
     public void setServiceCode(String serviceCode) {
         this.serviceCode = serviceCode;
     }
-    @XmlElement(name="DEC_TYPE")
+
     public void setDecType(String decType) {
         this.decType = decType;
     }
-    @XmlElement(name="REMARK")
+
     public void setRemark(String remark) {
         this.remark = remark;
     }
-    @XmlElement(name="TAX_NO")
+
     public void setTaxNo(String taxNo) {
         this.taxNo = taxNo;
     }
-    @XmlElement(name="CLOSETIME")
+
     public void setCloseTime(Date closeTime) {
         this.closeTime = closeTime;
     }
-    @XmlElement(name="DEC_STATUS")
+
     public void setDecStatus(String decStatus) {
         this.decStatus = decStatus;
     }
-    @XmlElement(name="GJ_STATUS")
+
     public void setGjStatus(String gjStatus) {
         this.gjStatus = gjStatus;
     }
-    @XmlElement(name="ISEXCELIMP")
+
     public void setIsExcelimp(String isExcelimp) {
         this.isExcelimp = isExcelimp;
     }
-    @XmlElement(name="TRANS_MODE")
+
     public void setTransMode(String transMode) {
         this.transMode = transMode;
     }
-    @XmlElement(name="ADDWHO")
+
     public void setAddWho(String addWho) {
         this.addWho = addWho;
     }
-    @XmlElement(name="ADDTS")
+
     public void setAddts(String addts) {
         this.addts = addts;
     }
-    @XmlElement(name="EDITWHO")
+
     public void setEditWho(String editWho) {
         this.editWho = editWho;
     }
-    @XmlElement(name="EDITTS")
+
     public void setEditts(String editts) {
         this.editts = editts;
     }
-    @XmlElement(name="STATUS")
+
     public void setStatus(String status) {
         this.status = status;
     }
-    @XmlElement(name="GATEJOB_NO")
+
     public void setGatejobNo(String gatejobNo) {
         this.gatejobNo = gatejobNo;
     }
-    @XmlElement(name="OPERTION_ID")
+
     public void setOpertionId(String opertionId) {
         this.opertionId = opertionId;
     }
-    @XmlElement(name="INVOICE_NO")
+
     public void setInvoiceNo(String invoiceNo) {
         this.invoiceNo = invoiceNo;
     }
-    @XmlElement(name="PRE_ARRIVAL_DATE")
+
     public void setPreArrivalDate(String preArrivalDate) {
         this.preArrivalDate = preArrivalDate;
     }
-    @XmlElement(name="ISTRANS")
+
     public void setIstrans(String istrans) {
         this.istrans = istrans;
     }
-    @XmlElement(name="VESSEL_NAME")
+
     public void setVesselName(String vesselName) {
         this.vesselName = vesselName;
     }
-    @XmlElement(name="VOYAGE")
+
     public void setVoyage(String voyage) {
         this.voyage = voyage;
     }
-    @XmlElement(name="IMPORT_DATE")
+
     public void setImportDate(Date importDate) {
         this.importDate = importDate;
     }
-    @XmlElement(name="IMPORT_STATE")
+
     public void setImportState(String importState) {
         this.importState = importState;
     }
-    @XmlElement(name="RESULT")
+
     public void setResult(String result) {
         this.result = result;
     }
-    @XmlElement(name="SOURCE_TYPE")
+
     public void setSourceType(String sourceType) {
         this.sourceType = sourceType;
     }
-    @XmlElement(name="INPUT_ER")
+
     public void setInputEr(String inputEr) {
         this.inputEr = inputEr;
     }
-    @XmlElement(name="INPUT_DATE")
+
     public void setInputDate(Date inputDate) {
         this.inputDate = inputDate;
     }
-    @XmlElement(name="UPDATE_ER")
+
     public void setUpdateEr(String updateEr) {
         this.updateEr = updateEr;
     }
-    @XmlElement(name="OP_CODE")
+
     public void setOpCode(String opCode) {
         this.opCode = opCode;
     }
-    @XmlElement(name="OP_CODE_NAME")
+
     public void setOpCodeName(String opCodeName) {
         this.opCodeName = opCodeName;
     }
-    @XmlElement(name="IMPORT_STATE_NAME")
+
     public void setImportStateName(String importStateName) {
         this.importStateName = importStateName;
     }
-    @XmlElement(name="TRADE_CODE")
+
     public void setTradeCode(String tradeCode) {
         this.tradeCode = tradeCode;
     }
-    @XmlElement(name="TRADE_NAME")
+
     public void setTradeName(String tradeName) {
         this.tradeName = tradeName;
     }
-    @XmlElement(name="DL_CODE")
+
     public void setDlCode(String dlCode) {
         this.dlCode = dlCode;
     }
-    @XmlElement(name="DL_NAME")
+
     public void setDlName(String dlName) {
         this.dlName = dlName;
     }
-    @XmlElement(name="OTHER_CODE")
+
     public void setOtherCode(String otherCode) {
         this.otherCode = otherCode;
     }
-    @XmlElement(name="OTHER_NAME")
+
     public void setOtherName(String otherName) {
         this.otherName = otherName;
     }
-    @XmlElement(name="EMS_NO")
+
     public void setEmsNo(String emsNo) {
         this.emsNo = emsNo;
     }
-    @XmlElement(name="CUSTOMS_CODE")
+
     public void setCustomsCode(String customsCode) {
         this.customsCode = customsCode;
     }
-    @XmlElement(name="REGION_CODE")
+
     public void setRegionCode(String regionCode) {
         this.regionCode = regionCode;
     }
-    @XmlElement(name="BIZ_TYPE")
+
     public void setBizType(String bizType) {
         this.bizType = bizType;
     }
-    @XmlElement(name="B2B_WMS_ORDER_DETAIL")
-    public void setWmsOrderDetail(WmsOrderDetail wmsOrderDetail) {
-        this.wmsOrderDetail = wmsOrderDetail;
-    }
-    
+
     public String getOrderNo() {
         return orderNo;
     }
+
     public String getSysCode() {
         return sysCode;
     }
+
     public String getWarehseNo() {
         return warehseNo;
     }
+
     public String getBarcode() {
         return barcode;
     }
+
     public String getAsnsono() {
         return asnsono;
     }
+
     public Date getAcceptDate() {
         return acceptDate;
     }
+
     public String getOrderStatus() {
         return orderStatus;
     }
+
     public String getIeFlag() {
         return ieFlag;
     }
-    public String getPieces() {
+
+    public Double getPieces() {
         return pieces;
     }
-    public String getGrossWgight() {
+
+    public Double getGrossWgight() {
         return grossWgight;
     }
-    public String getWeight() {
+
+    public Double getWeight() {
         return weight;
     }
+
     public String getVolume() {
         return volume;
     }
+
     public String getTotalMenoy() {
         return totalMenoy;
     }
+
     public String getWarpType() {
         return warpType;
     }
-    public String getAmount() {
+
+    public Double getAmount() {
         return amount;
     }
+
     public String getVerdor() {
         return verdor;
     }
+
     public String getTrafMode() {
         return trafMode;
     }
+
     public String getTradeCountry() {
         return tradeCountry;
     }
+
     public String getDistinatePort() {
         return distinatePort;
     }
+
     public String getBill1() {
         return bill1;
     }
+
     public String getBill2() {
         return bill2;
     }
+
     public String getServiceCode() {
         return serviceCode;
     }
+
     public String getDecType() {
         return decType;
     }
+
     public String getRemark() {
         return remark;
     }
+
     public String getTaxNo() {
         return taxNo;
     }
+
     public Date getCloseTime() {
         return closeTime;
     }
+
     public String getDecStatus() {
         return decStatus;
     }
+
     public String getGjStatus() {
         return gjStatus;
     }
+
     public String getIsExcelimp() {
         return isExcelimp;
     }
+
     public String getTransMode() {
         return transMode;
     }
+
     public String getAddWho() {
         return addWho;
     }
+
     public String getAddts() {
         return addts;
     }
+
     public String getEditWho() {
         return editWho;
     }
+
     public String getEditts() {
         return editts;
     }
+
     public String getStatus() {
         return status;
     }
+
     public String getGatejobNo() {
         return gatejobNo;
     }
+
     public String getOpertionId() {
         return opertionId;
     }
+
     public String getInvoiceNo() {
         return invoiceNo;
     }
+
     public String getPreArrivalDate() {
         return preArrivalDate;
     }
+
     public String getIstrans() {
         return istrans;
     }
+
     public String getVesselName() {
         return vesselName;
     }
+
     public String getVoyage() {
         return voyage;
     }
+
     public Date getImportDate() {
         return importDate;
     }
+
     public String getImportState() {
         return importState;
     }
+
     public String getResult() {
         return result;
     }
+
     public String getSourceType() {
         return sourceType;
     }
+
     public String getInputEr() {
         return inputEr;
     }
+
     public Date getInputDate() {
         return inputDate;
     }
+
     public String getUpdateEr() {
         return updateEr;
     }
+
     public String getOpCode() {
         return opCode;
     }
+
     public String getOpCodeName() {
         return opCodeName;
     }
+
     public String getImportStateName() {
         return importStateName;
     }
+
     public String getTradeCode() {
         return tradeCode;
     }
+
     public String getTradeName() {
         return tradeName;
     }
+
     public String getDlCode() {
         return dlCode;
     }
+
     public String getDlName() {
         return dlName;
     }
+
     public String getOtherCode() {
         return otherCode;
     }
+
     public String getOtherName() {
         return otherName;
     }
+
     public String getEmsNo() {
         return emsNo;
     }
+
     public String getCustomsCode() {
         return customsCode;
     }
+
     public String getRegionCode() {
         return regionCode;
     }
+
     public String getBizType() {
         return bizType;
     }
-    public WmsOrderDetail getWmsOrderDetail() {
+
+    public String getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(String updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getInputCode() {
+        return inputCode;
+    }
+
+    public void setInputCode(String inputCode) {
+        this.inputCode = inputCode;
+    }
+
+    public String getInputName() {
+        return inputName;
+    }
+
+    public void setInputName(String inputName) {
+        this.inputName = inputName;
+    }
+
+    public List<WmsOrderDetail> getWmsOrderDetail() {
         return wmsOrderDetail;
     }
+
+    public void setWmsOrderDetail(List<WmsOrderDetail> wmsOrderDetail) {
+        this.wmsOrderDetail = wmsOrderDetail;
+    }
+
 }
