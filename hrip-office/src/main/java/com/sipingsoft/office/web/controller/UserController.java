@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sipingsoft.office.core.orm.Page;
+import com.sipingsoft.office.web.dao.UserMapper;
 import com.sipingsoft.office.web.entity.User;
-import com.sipingsoft.office.web.repository.UserMapper;
 
 @Controller
 public class UserController {

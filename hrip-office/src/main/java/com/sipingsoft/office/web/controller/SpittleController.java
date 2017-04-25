@@ -19,9 +19,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sipingsoft.office.core.annotation.Token;
 import com.sipingsoft.office.core.exception.DuplicateSpittleException;
 import com.sipingsoft.office.core.exception.SpittleNotFoundException;
+import com.sipingsoft.office.web.dao.UserMapper;
 import com.sipingsoft.office.web.entity.Spittler;
 import com.sipingsoft.office.web.entity.User;
-import com.sipingsoft.office.web.repository.UserMapper;
 
 @Controller
 public class SpittleController {

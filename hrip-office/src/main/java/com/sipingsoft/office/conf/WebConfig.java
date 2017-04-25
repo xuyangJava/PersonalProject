@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -20,6 +21,7 @@ import com.sipingsoft.office.core.interceptor.TokenInterceptor;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
+@ImportResource("classpath*:druid.xml")
 @ComponentScan(basePackages = {"com.sipingsoft.office.web.controller", "com.sipingsoft.office.core.exception"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -60,6 +62,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public TokenInterceptor loginInterceptor() {
         return new TokenInterceptor();
     }
+    
     @Override
     public void addInterceptors(InterceptorRegistry registry) {  
         registry.addInterceptor(loginInterceptor());  

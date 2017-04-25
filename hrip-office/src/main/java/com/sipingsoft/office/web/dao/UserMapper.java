@@ -1,4 +1,4 @@
-package com.sipingsoft.office.web.repository;
+package com.sipingsoft.office.web.dao;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import com.sipingsoft.office.web.entity.User;
 
 /**
  * 用户Dao接口
+ * @param <T>
  * 
  **/
 public interface UserMapper extends Mapper<User> {

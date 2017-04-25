@@ -2,10 +2,10 @@ package com.sipingsoft.office.conf;
 
 import java.util.Properties;
 
-import tk.mybatis.spring.mapper.MapperScannerConfigurer;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 // 配置mybatis插件
 @Configuration

@@ -22,7 +22,6 @@ import com.alibaba.druid.pool.DruidDataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:jdbc.properties")
-
 public class DBConfig implements EnvironmentAware {
 
     private Environment env;
@@ -54,7 +53,7 @@ public class DBConfig implements EnvironmentAware {
         druidDataSource.setTestOnBorrow(false);
         druidDataSource.setTestOnReturn(false);
         try {
-            druidDataSource.setFilters("stat,log4j"); // 监控sql
+            druidDataSource.setFilters("stat,log4j,wall,mergeStat"); // 监控sql
         } catch (SQLException e) {
             e.printStackTrace();
         }

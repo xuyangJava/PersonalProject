@@ -45,7 +45,6 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         characterEncodingFilter.setForceEncoding(true);
         return new Filter[]{ characterEncodingFilter };
     }
-
     /*
      * 重载改方法可以对DispacherServelet进行额外的配置,
      */
