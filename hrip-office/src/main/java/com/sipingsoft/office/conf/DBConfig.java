@@ -69,7 +69,7 @@ public class DBConfig implements EnvironmentAware {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
         factoryBean.setDataSource(dataSource);
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        Resource[] mapperLocations = resolver.getResources("classpath:com/sipingsoft/office/web/repository/*Mapper.xml");
+        Resource[] mapperLocations = resolver.getResources("classpath:com/sipingsoft/office/web/dao/*Mapper.xml");
         factoryBean.setMapperLocations(mapperLocations);
        // factoryBean.setConfigLocation(new ClassPathResource("classpath*:mybatis-config.xml"));
         return factoryBean.getObject();
@@ -80,7 +80,7 @@ public class DBConfig implements EnvironmentAware {
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer(){
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage("com.sipingsoft.office.web.repository");
+        mapperScannerConfigurer.setBasePackage("com.sipingsoft.office.web.dao");
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         return mapperScannerConfigurer;
     }

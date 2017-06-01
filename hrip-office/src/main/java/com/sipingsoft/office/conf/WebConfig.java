@@ -22,7 +22,7 @@ import com.sipingsoft.office.core.interceptor.TokenInterceptor;
 @EnableWebMvc
 @EnableAspectJAutoProxy
 @ImportResource("classpath*:druid.xml")
-@ComponentScan(basePackages = {"com.sipingsoft.office.web.controller", "com.sipingsoft.office.core.exception"})
+@ComponentScan(basePackages = {"com.sipingsoft.office.web"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     /*
@@ -53,7 +53,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry)
     {
-        registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/").setCachePeriod(123456);
+        registry.addResourceHandler("/assets/**").addResourceLocations("/WEB-INF/assets/").setCachePeriod(123456);
     }
     /*
      * 注册拦截器

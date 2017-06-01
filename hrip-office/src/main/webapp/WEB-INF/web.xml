@@ -15,9 +15,9 @@
 		<param-value>60000</param-value>
 	</context-param>
     <!-- 配置Spring上下文监听器 -->
-    <listener>
+    <!-- <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    </listener> -->
     
 	<!-- 配置Log4j监听器 -->
 	<listener>

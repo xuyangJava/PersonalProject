@@ -21,7 +21,7 @@ import org.junit.Test;
 // 发送xml字符串
 public class TestPostXml {
 
-    @Test
+    //@Test
     public void testPost() {
         String urlStr = "http://localhost:8081/office/jsonPrase";
         try {
