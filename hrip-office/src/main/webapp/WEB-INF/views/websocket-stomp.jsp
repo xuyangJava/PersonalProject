@@ -44,21 +44,6 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 			stomp.send('/stomp/marco',{},payload); // 第二个参数是头消息的Map参数
 		});
 		
-		/* sock.onopen = function() { // 对应afterConnectionEstablished
-			console.log('Opening');
-			sayMarco();
-		};
-		sock.onmessage = function(e) { // 对应handleTextMessage
-			console.log('Received message：', e.data);
-			setTimeout(function (){sayMarco()}, 2000);
-		};
-		sock.onclose = function() { // 对应afterConnectionClosed
-			console.log('Closing');
-		};
-		function sayMarco(){
-			console.log('Sending marco!');
-			sock.send('Marco!');
-		}   */
     </script>
 </body>
 </html>

@@ -34,33 +34,18 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/sockjs-1.1.4.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/stomp.min.js"></script>
     <script type="text/javascript">
-		var url = '<%=basePath%>sub';
+		var url = '<%=basePath%>marcopolo';
 		var sock = new SockJS(url);
 		var stomp = Stomp.over(sock);
 		
 		stomp.connect('guest','guest',function(frame){
 			console.log('Connected');
-			stomp.subscribe('/topic/sub', handSub); // 订阅消息
+			stomp.subscribe('/topic/spittlefeed', handSub); // 订阅消息
 		});
 		function handSub(incoming){
 			console.log(incoming);
 		}
 		
-		/* sock.onopen = function() { // 对应afterConnectionEstablished
-			console.log('Opening');
-			sayMarco();
-		};
-		sock.onmessage = function(e) { // 对应handleTextMessage
-			console.log('Received message：', e.data);
-			setTimeout(function (){sayMarco()}, 2000);
-		};
-		sock.onclose = function() { // 对应afterConnectionClosed
-			console.log('Closing');
-		};
-		function sayMarco(){
-			console.log('Sending marco!');
-			sock.send('Marco!');
-		}   */
     </script>
 </body>
 </html>

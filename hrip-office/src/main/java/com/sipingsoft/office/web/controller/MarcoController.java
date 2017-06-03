@@ -1,22 +1,22 @@
 package com.sipingsoft.office.web.controller;
 
+import java.security.Principal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;
 import org.springframework.stereotype.Controller;
 
 import com.sipingsoft.office.web.entity.Shout;
 
+/**
+ * webSocket模拟测试类
+ */
 @Controller
 public class MarcoController {
 	
-	@Autowired
-	private SimpMessagingTemplate template;
-
 	private static final Logger logger = LoggerFactory.getLogger(MarcoController.class);
 	
 	/**
@@ -26,7 +26,7 @@ public class MarcoController {
 	 */
 	@MessageMapping("/stomp/marco")
 	@SendTo("/topic/shout")
-	public Shout handleShout(Shout incoming) {
+	public Shout handleShout(Shout incoming, Principal pri) {
 		logger.info("收到消息："+ incoming.getMessage());
 		Shout outgoing = new Shout();
 		outgoing.setMessage("Polo22!");
@@ -40,7 +40,7 @@ public class MarcoController {
 	 * @return
 	 */
 	@SubscribeMapping({"/stomp/marco"})
-	public Shout handleSubscription(){
+	public Shout handleSubscription() {
 		Shout outgoing = new Shout();
 		outgoing.setMessage("Polo!");
 		return outgoing;
