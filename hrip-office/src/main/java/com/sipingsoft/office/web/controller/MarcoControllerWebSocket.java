@@ -15,9 +15,9 @@ import com.sipingsoft.office.web.entity.Shout;
  * webSocket模拟测试类
  */
 @Controller
-public class MarcoController {
+public class MarcoControllerWebSocket {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MarcoController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MarcoControllerWebSocket.class);
 	
 	/**
 	 * 处理指定目的地（/app/stomp/marco，/app是隐含的）到达的消息
@@ -25,8 +25,8 @@ public class MarcoController {
 	 * @param incoming
 	 */
 	@MessageMapping("/stomp/marco")
-	@SendTo("/topic/shout")
-	public Shout handleShout(Shout incoming, Principal pri) {
+	@SendTo("/topic/stomp/shout") // 重载返回目的地，如果不加默认的目的地为/topic/stomp/marco
+	public Shout handleShout(Shout incoming) {
 		logger.info("收到消息："+ incoming.getMessage());
 		Shout outgoing = new Shout();
 		outgoing.setMessage("Polo22!");

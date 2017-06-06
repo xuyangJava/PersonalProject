@@ -34,6 +34,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/sockjs-1.1.4.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/stomp.min.js"></script>
     <script type="text/javascript">
+    	// 使用stomp发送消息到服务器
 		var url = '<%=basePath%>marcopolo';
 		var sock = new SockJS(url);
 		var stomp = Stomp.over(sock);
@@ -41,9 +42,13 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 		var payload = JSON.stringify({'message' : 'Marco22!'});
 		
 		stomp.connect('guest','guest',function(frame){
-			stomp.send('/stomp/marco',{},payload); // 第二个参数是头消息的Map参数
+			stomp.subscribe('/topic/stomp/shout', handSub); // 订阅返回的消息
+			stomp.send('/app/stomp/marco',{},payload); // 第二个参数是头消息的Map参数
 		});
 		
+		function handSub(shout){
+			console.log(shout);
+		}
     </script>
 </body>
 </html>

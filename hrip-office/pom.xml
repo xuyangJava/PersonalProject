@@ -240,7 +240,7 @@
 		    <version>2.1.0</version>
 		</dependency>
 		
-		<!-- websocket -->
+		<!-- websocket start -->
 		<dependency>
 		    <groupId>javax.websocket</groupId>
 		    <artifactId>javax.websocket-api</artifactId>
@@ -263,13 +263,25 @@
             <artifactId>reactor-net</artifactId>  
             <version>2.0.7.RELEASE</version>  
         </dependency>  
-  
+  	
         <dependency>  
             <groupId>io.netty</groupId>  
             <artifactId>netty-all</artifactId>  
             <version>4.0.33.Final</version>  
         </dependency>  
   
+  		<!-- 解决Failed to start bean 'stompBrokerRelayMessageHandler'; 
+  			nested exception is java.lang.NoClassDefFoundError: reactor/tcp/Reconnect -->
+	    <dependency>
+		  <groupId>org.projectreactor</groupId>
+		  <artifactId>reactor-core</artifactId>
+		  <version>1.0.0.RELEASE</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.projectreactor</groupId>
+		  <artifactId>reactor-tcp</artifactId>
+		  <version>1.0.0.RELEASE</version>
+		</dependency>
   
         <!-- 解决错误:Whoops! Lost connection to undefined -->  
         <!-- <dependency>  
@@ -277,7 +289,24 @@
             <artifactId>jackson-databind</artifactId>  
             <version>2.6.4</version>  
         </dependency>   -->
+        <!-- websocket end -->
 	</dependencies>
+	
+	<repositories>  
+	    <repository>  
+	        <!-- Maven 自带的中央仓库使用的Id为central 如果其他的仓库声明也是用该Id  就会覆盖中央仓库的配置 --> 
+	        <id>nexus-aliyun</id>  
+	        <name>Nexus aliyun</name>  
+	        <url>http://maven.aliyun.com/nexus/content/groups/public</url>  
+	        <layout>default</layout>  
+	        <releases>  
+	            <enabled>true</enabled>  
+	        </releases>  
+	        <snapshots>  
+	            <enabled>false</enabled>  
+	        </snapshots> 
+        </repository>
+	</repositories>  
 
 	<build>
 		<finalName>${project.name}</finalName>

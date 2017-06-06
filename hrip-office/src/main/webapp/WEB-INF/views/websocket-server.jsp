@@ -34,6 +34,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/sockjs-1.1.4.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/stomp.min.js"></script>
     <script type="text/javascript">
+    	// 使用stomp订阅服务器的消息，当服务器发送消息时，这里会接收并处理
 		var url = '<%=basePath%>marcopolo';
 		var sock = new SockJS(url);
 		var stomp = Stomp.over(sock);

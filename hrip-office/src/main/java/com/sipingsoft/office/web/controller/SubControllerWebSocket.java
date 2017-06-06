@@ -11,7 +11,7 @@ import com.sipingsoft.office.web.entity.Spittle;
 import com.sipingsoft.office.web.service.SubServiceImpl;
 
 @Controller
-public class SubController {
+public class SubControllerWebSocket {
 
 	@Autowired
 	private SimpMessageSendingOperations messaging;
