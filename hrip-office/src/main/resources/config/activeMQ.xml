@@ -26,12 +26,31 @@
     http://activemq.apache.org/schema/core/activemq-core-5.8.0.xsd">
 
 	<!-- 1.配置连接工厂 -->
-    <!-- <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory" 
+    <!-- <bean id="connectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory" 
     p:brokerUrl="tcp://localhost:61616"/> -->
     <!-- 以下是使用amq自己的命名空间配置，需要在头部加上amq的命名空间 -->
-   	<amq:connectionFactory  id="connectionFactory" brokerURL="tcp://localhost:61616"/>
+   	<!-- <amq:connectionFactory  id="connectionFactory" brokerURL="tcp://localhost:61616" /> -->
+   	
+   	<!-- <bean id="spittlerAlertHandler" class="com.sipingsoft.office.web.entity.Spittle.SpittlerAlertHandler"/> -->
+    <!-- <bean id="connectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="amqConnectionFactory"></property>
+        <property name="sessionCacheSize" value="100" />
+    </bean> -->
 	
 	<!-- 2.声明一个队列或主题 -->
-	<amq:queue id="spittleQueue" physicalName="spittle.alert.queue"/>
-	<amq:topic id="spittleTopic" physicalName="spittle.alert.topic"/>
+	<!-- <amq:queue id="spittleQueue" physicalName="spittle.alert.queue"/>
+	<amq:topic id="spittleTopic" physicalName="spittle.alert.topic"/> -->
+	
+	<!-- 3.jmsTemplate -->
+	<!-- <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<constructor-arg ref="connectionFactory" />
+		指定创建目的地的类型，这样在send的时候可以不用指定目的地名称，这里也可以设置一个默认的目的地名称
+		<property name="spittleQueue"/>
+	</bean> -->
+	
+	
+	<!-- 消息监听器 -->
+	<jms:listener-container connection-factory="connectionFactory">
+	   <jms:listener destination="spittle.alert.queue" ref="spittlerAlertHandler" method="handleSpittleAlert"/>
+	</jms:listener-container>
 </beans>

@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 import com.sipingsoft.office.web.entity.Spittle;
 
+/**
+ * websocket stomp发送示例
+ */
 @Service
 public class SubServiceImpl {
 

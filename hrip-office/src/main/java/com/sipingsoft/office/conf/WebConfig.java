@@ -21,7 +21,7 @@ import com.sipingsoft.office.core.interceptor.TokenInterceptor;
 @Configuration
 @EnableWebMvc
 @EnableAspectJAutoProxy
-@ImportResource("classpath*:druid.xml")
+@ImportResource({"classpath*:druid.xml"})
 @ComponentScan(basePackages = {"com.sipingsoft.office.web"})
 public class WebConfig extends WebMvcConfigurerAdapter {
 

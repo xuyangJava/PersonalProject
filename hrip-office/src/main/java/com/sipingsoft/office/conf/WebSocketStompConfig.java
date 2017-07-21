@@ -32,9 +32,9 @@ public class WebSocketStompConfig extends AbstractWebSocketMessageBrokerConfigur
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry registry) {
 		// 使用代理中继，例如activeMQ，默认会监听localhost的61613端口，用户名和密码都为guest
-		registry.enableStompBrokerRelay("/queue", "/topic");
+		//registry.enableStompBrokerRelay("/queue", "/topic");
 		
-		//registry.enableSimpleBroker("/queue", "/topic"); // 默认会有个前缀为topic代理
+		registry.enableSimpleBroker("/queue", "/topic"); // 默认会有个前缀为topic代理
 		/*registry.enableStompBrokerRelay("/queue", "/topic") // 使用activeMQ做代理
 		.setRelayHost("127.0.0.1").setRelayPort(61613)
 		.setClientLogin("guest").setClientPasscode("guest");*/

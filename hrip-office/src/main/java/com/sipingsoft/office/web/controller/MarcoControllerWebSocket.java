@@ -1,7 +1,5 @@
 package com.sipingsoft.office.web.controller;
 
-import java.security.Principal;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.handler.annotation.MessageMapping;
