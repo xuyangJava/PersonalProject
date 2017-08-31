@@ -48,7 +48,6 @@
 		<property name="spittleQueue"/>
 	</bean> -->
 	
-	
 	<!-- 消息监听器 -->
 	<jms:listener-container connection-factory="connectionFactory">
 	   <jms:listener destination="spittle.alert.queue" ref="spittlerAlertHandler" method="handleSpittleAlert"/>

@@ -48,7 +48,7 @@ public class ActiveMQConfig {
     }
     
     @Bean
-    public JmsTemplate jmsTemplate(@Qualifier("connectionFactory") ActiveMQConnectionFactory connectionFactory, ActiveMQQueue activeMQQueue) {
+    public JmsTemplate jmsTemplate(@Qualifier("connectionFactory") CachingConnectionFactory connectionFactory, ActiveMQQueue activeMQQueue) {
         JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
         // 设置默认的目的地名称
         // jmsTemplate.setDefaultDestinationName("spittle.alert.queue");
