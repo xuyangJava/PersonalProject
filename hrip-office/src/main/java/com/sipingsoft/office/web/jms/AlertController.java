@@ -15,9 +15,9 @@ public class AlertController {
     
     @RequestMapping("/jms/send")
     @ResponseBody
-    public String send() {
-        Spittle s = new Spittle("HELLO WORLD!", null, null, null);
-        service.sendSpittleAlert(s);
+    public String send(String msg) {
+        Spittle s = new Spittle(msg, null, null, null);
+        service.convertAndSendSpittleAlert(s);
         return "success";
     }
     

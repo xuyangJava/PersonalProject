@@ -26,10 +26,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 </style>
 </head>
 <body class="easyui-layout" style="overflow-y: hidden" scroll="no">
-    
-
-
-
+    <h3>消息：</h3><span id="msg"></span>
     <script type="text/javascript" src="<%=basePath%>assets/js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/sockjs-1.1.4.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>assets/js/websocket/stomp.min.js"></script>
@@ -45,6 +42,8 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 		});
 		function handSub(incoming){
 			console.log(incoming);
+			document.getElementById("msg").innerHTML = '';
+			document.getElementById("msg").innerHTML = '收到消息：' + incoming.body;
 		}
 		
     </script>

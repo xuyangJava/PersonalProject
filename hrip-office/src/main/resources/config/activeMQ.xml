@@ -49,7 +49,10 @@
 	</bean> -->
 	
 	<!-- 消息监听器 -->
-	<jms:listener-container connection-factory="connectionFactory">
+	<jms:listener-container connection-factory="connectionFactory" >
 	   <jms:listener destination="spittle.alert.queue" ref="spittlerAlertHandler" method="handleSpittleAlert"/>
 	</jms:listener-container>
+	<jms:listener-container connection-factory="connectionFactory" destination-type="topic">
+       <jms:listener destination="spittle.alert.topic" ref="spittlerAlertHandler" method="handleSpittleTopic"/>
+    </jms:listener-container>
 </beans>

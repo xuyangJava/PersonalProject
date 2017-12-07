@@ -24,7 +24,7 @@ import com.sipingsoft.office.conf.RootConfig;
 import com.sipingsoft.office.web.entity.Spittle;
 import com.sipingsoft.office.web.jms.AlertService;
 
-@ContextConfiguration(classes = {RootConfig.class, DBConfig.class, MybatisConfig.class, RedisConfig.class, ActiveMQConfig.class})  
+//@ContextConfiguration(classes = {RootConfig.class, DBConfig.class, MybatisConfig.class, RedisConfig.class, ActiveMQConfig.class})  
 public class TestJMS {
 	
 	@Autowired
@@ -60,7 +60,7 @@ public class TestJMS {
 		}
 	}
 	
-	@Test
+	// @Test
 	public void reciveMessage(){
 		ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://localhost:61616");
 		Connection conn = null;

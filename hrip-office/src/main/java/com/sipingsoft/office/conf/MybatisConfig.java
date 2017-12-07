@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 // 配置mybatis插件
-@Configuration
+// @Configuration
 public class MybatisConfig {
 
     @Bean

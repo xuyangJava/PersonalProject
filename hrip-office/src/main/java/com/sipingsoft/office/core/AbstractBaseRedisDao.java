@@ -6,7 +6,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 
 public class AbstractBaseRedisDao<K, V> {
 
-    @Autowired  
+    // @Autowired  
     protected RedisTemplate<K, V> redisTemplate;
     
     public void setRedisTemplate(RedisTemplate<K, V> redisTemplate) {  

@@ -14,16 +14,16 @@ import com.sipingsoft.office.conf.RootConfig;
 import com.sipingsoft.office.web.dao.IUserDao;
 import com.sipingsoft.office.web.entity.User;
 
-@ContextConfiguration(classes = {RootConfig.class, DBConfig.class, MybatisConfig.class, RedisConfig.class})  
-public class RedisTest extends AbstractJUnit4SpringContextTests  {
+//@ContextConfiguration(classes = {RootConfig.class, DBConfig.class, MybatisConfig.class, RedisConfig.class})  
+public class RedisTest /*extends AbstractJUnit4SpringContextTests */ {
 
-    @Autowired  
+    /*@Autowired  
     private IUserDao userDao;  
     
-    /** 
+    *//** 
      * 新增 
      * <br>------------------------------<br> 
-     */  
+     *//*  
     @Test  
     public void testAddUser() {  
         User user = new User();  
@@ -36,6 +36,6 @@ public class RedisTest extends AbstractJUnit4SpringContextTests  {
     public void testGetUser(){
         User user = userDao.get("yx");
         System.out.println(user.toString());
-    }
+    }*/
       
 }

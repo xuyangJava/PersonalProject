@@ -20,7 +20,7 @@ public class ActiveMQConfig {
     @Qualifier("amqConnectionFactory")
     public ActiveMQConnectionFactory ampConnectionFactory() {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
-        connectionFactory.setBrokerURL("tcp://localhost:61616");
+        connectionFactory.setBrokerURL("tcp://127.0.0.1:61616");
         return connectionFactory;
     }
     // 缓存连接工厂
@@ -46,16 +46,27 @@ public class ActiveMQConfig {
         activeMQTopic.setPhysicalName("spittle.alert.topic");
         return activeMQTopic;
     }
-    
     @Bean
-    public JmsTemplate jmsTemplate(@Qualifier("connectionFactory") CachingConnectionFactory connectionFactory, ActiveMQQueue activeMQQueue) {
+    public JmsTemplate jmsQueueTemplate(@Qualifier("connectionFactory") CachingConnectionFactory connectionFactory, ActiveMQQueue activeMQQueue) {
         JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
         // 设置默认的目的地名称
-        // jmsTemplate.setDefaultDestinationName("spittle.alert.queue");
+        jmsTemplate.setDefaultDestinationName("spittle.alert.queue");
         // 设置默认的目的地类型
-        // jmsTemplate.setDefaultDestination(activeMQQueue);
+        jmsTemplate.setDefaultDestination(activeMQQueue);
         // 队列模式，true为topic模式
         jmsTemplate.setPubSubDomain(false);
+        return jmsTemplate;
+    }
+    
+    @Bean
+    public JmsTemplate jmsTopicTemplate(@Qualifier("connectionFactory") CachingConnectionFactory connectionFactory, ActiveMQTopic activeMQTopic) {
+        JmsTemplate jmsTemplate = new JmsTemplate(connectionFactory);
+        // 设置默认的目的地名称
+        jmsTemplate.setDefaultDestinationName("spittle.alert.topic");
+        // 设置默认的目的地类型
+        jmsTemplate.setDefaultDestination(activeMQTopic);
+        // 队列模式，true为topic模式
+        jmsTemplate.setPubSubDomain(true);
         return jmsTemplate;
     }
     

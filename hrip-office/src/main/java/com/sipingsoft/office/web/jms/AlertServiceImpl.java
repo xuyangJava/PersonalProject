@@ -15,12 +15,14 @@ import com.sipingsoft.office.web.entity.Spittle;
 public class AlertServiceImpl implements AlertService {
 
     @Autowired
-	private JmsTemplate jmsOperations;
+    private JmsTemplate jmsQueueTemplate;
+    @Autowired
+	private JmsTemplate jmsTopicTemplate;
 	
 	@Override
 	public void sendSpittleAlert(final Spittle spittle) {
 		// 第一个是目的地，第二个是一个匿名内部类用来构造消息
-		jmsOperations.send("spittle.alert.queue",new MessageCreator() {
+	    jmsQueueTemplate.send("spittle.alert.queue",new MessageCreator() {
 			
 			@Override
 			public Message createMessage(Session session) throws JMSException {
@@ -34,7 +36,7 @@ public class AlertServiceImpl implements AlertService {
 	 */
 	@Override
 	public void convertAndSendSpittleAlert(Spittle spittle) {
-		jmsOperations.convertAndSend(spittle);
+	    jmsTopicTemplate.convertAndSend(spittle);
 	}
 	
 	/**
@@ -42,7 +44,7 @@ public class AlertServiceImpl implements AlertService {
 	 */
 	@Override
 	public Spittle receiveAndConvert(){
-	    return (Spittle) jmsOperations.receiveAndConvert();
+	    return (Spittle) jmsTopicTemplate.receiveAndConvert();
 	}
 
 }
